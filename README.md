@@ -21,6 +21,7 @@ This document will show you how to integrate our SDK into your app, configure it
 
 ##### 2. Add `Beeping.framework` to your project
 
+In Xcode, please do the following:
 * Select the project file from the project navigator on the left side of the project window.
 * Select the target for where you want to add frameworks in the project settings editor.
 * Select the “Build Phases” tab, and click the small triangle next to “Link Binary With Libraries” to view all of the frameworks in your application.
