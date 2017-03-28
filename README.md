@@ -110,55 +110,70 @@ This method will respond with a Beep JSONObject (sample provided below).*
 
 ## Sample iOS App with SDK
 
-* In `AndroidManifest.xml` add:
-```
-<manifest...>
-
-  <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-
-  <application> ... </application>
-  
-</manifest>
+* In the `ViewController.m` file add:
 ```
 
-* In `MainActivity.java` add:
-```
-  import com.beeping.AndroidBeepingCore.*;
-  
-  import android.app.Activity;
-  import org.json.JSONObject;
-  import android.util.Log;
+#import "ViewController.h"
 
-  public class MainActivity extends Activity implements BeepEventListener {
-  
-      BeepingCore beeping;
-  
-      protected void onCreate(Bundle savedInstanceState) {
-      
-          // Initialize BeepingCore instance
-          beeping = new BeepingCore(appIdString, this);
-          
-          // Start listening for beeps
-          beeping.startBeepingListen();
-      }
-  
-      public void onDestroy() {
-      
-          super.onDestroy();
-          
-          // Stop listening for beeps
-          beeping.stopBeepingListen();
-          
-          // Deallocating memory
-          beeping.dealloc();
-      }
-  
-      public void onBeepResponseEvent(JSONObject beep) {
-          Log.d("APP", "onBeepingEvent: " + beep.toString());
-      }
-      
-  }
+// Importing Beeping Library
+#import <Beeping/Beeping.h>
+
+@interface ViewController ()
+
+@end
+
+// Initializing Beeping with beepingManager
+Beeping *beepingManager ;
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    
+    // Adding observer with callback
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(getBeep:)
+                                                 name:@"getBeep"
+                                               object:nil];
+    
+    // Instantiating Beeping
+    beepingManager = [Beeping instance];
+    
+    // Adding your provided Application Id
+    [beepingManager setAppId:@"d9cb1f17116977cbacdfbe6ab3197589"] ;
+    
+    // Start listening for beeps
+    [beepingManager listen] ;
+    
+    // Stop listening for beeps
+    //[beepingManager stop];
+}
+
+- (void)addNotifications {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    
+}
+
+// Callback function handling response after beep is detected
+- (void)getBeep:(NSNotification *)notification {
+    
+    NSDictionary *beep = [beepingManager beep] ;
+    
+    NSLog(@"This is your beep: %@", beep);
+    
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.  
+}
+
+
+@end
 ```
 
 ### THE END
