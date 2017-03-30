@@ -9,7 +9,7 @@ This document will show you how to integrate our SDK into your app, configure it
 
 ## App Requirements
 
-* Your App must request an AppId from our Development Team. You will need this key to initialize the Beeping SDK. *Get in touch at hello@beeping.io.*
+* Your App must request an AppId from our Development Team. You will need this key to initialize the Beeping SDK. *Get in touch at dev@beeping.io.*
 
 ## Installing the SDK on your App
 
