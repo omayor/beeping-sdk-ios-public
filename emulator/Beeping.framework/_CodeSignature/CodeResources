@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/Beeping.h</key>
 		<data>
-		06HHp0PehtECV89TFtBIFJhe52o=
+		fxfPKcVRijMjh/XlcXUVB9sbxB8=
 		</data>
 		<key>Headers/BeepingCore.h</key>
 		<data>
@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		zTa5Y+ORwD6/Tc6rvLlb4IKkiCc=
+		+emHDtEF6pk3pKmaGRaPyMXYCew=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -27,11 +27,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			06HHp0PehtECV89TFtBIFJhe52o=
+			fxfPKcVRijMjh/XlcXUVB9sbxB8=
 			</data>
 			<key>hash2</key>
 			<data>
-			iINIZ6PmuF5MUhwunqXj1eo+fykiHIe/Ln4fe4ufIKE=
+			rh6RAgybjNm1TblnMYrdVKwIWfqoVp5yOIKj4N9GP5k=
 			</data>
 		</dict>
 		<key>Headers/BeepingCore.h</key>

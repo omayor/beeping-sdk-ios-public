@@ -29,9 +29,6 @@
     // Dictionary for storing all data of decoded beeps
     NSMutableDictionary *_beeps ;
     
-    // Dictionary for storing all data of decoded beeps
-    NSMutableDictionary *_beepTmp ;
-    
     // Cache
     NSString *_beepId;
     NSString *_beepURL;
