@@ -27,7 +27,7 @@ In Xcode, please do the following:
 * Select the “Build Phases” tab, and click the small triangle next to “Link Binary With Libraries” to view all of the frameworks in your application.
 * To Add frameworks, click the “+” below the list of frameworks.
 * Find and add the `Beeping.framework` downloaded from the repo.
- 
+
 ## Using the SDK
 
 Inside your `ViewController.m` file, do the following:
@@ -51,7 +51,7 @@ Beeping *beepingManager;
                                             name:@"getBeep"
                                           object:nil];
 ```
-##### 3. Instantiating Beeping and adding your AppId 
+##### 3. Instantiating Beeping and adding your AppId
 
 * Create an instance of `beepingManager`:
 ```
@@ -81,11 +81,11 @@ When we successfully detect and retrieve a beep, the callback is triggered.*
 * Callback function when beep detected/retrieved:
 ```
 - (void)getBeep:(NSNotification *)notification {
-    
+
     NSDictionary *beep = [beepingManager beep] ;
-    
+
     NSLog(@"This is your beep: %@", beep);
-    
+
 }
 ```
 *IMPORTANT: When we successfully detect and retrieve a beep, the callback is triggered.<br>
@@ -129,42 +129,42 @@ Beeping *beepingManager ;
 @implementation ViewController
 
 - (void)viewDidLoad {
-    
+
     [super viewDidLoad];
-    
+
     // Adding observer with callback
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(getBeep:)
                                                  name:@"getBeep"
                                                object:nil];
-    
+
     // Instantiating Beeping
     beepingManager = [Beeping instance];
-    
+
     // Adding your provided Application Id
     [beepingManager setAppId:@"d9cb1f17116977cbacdfbe6ab3197589"] ;
-    
+
     // Start listening for beeps
     [beepingManager listen] ;
-    
+
     // Stop listening for beeps
     //[beepingManager stop];
 }
 
 - (void)addNotifications {
-    
+
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
-    
+
+
 }
 
 // Callback function handling response after beep is detected
 - (void)getBeep:(NSNotification *)notification {
-    
+
     NSDictionary *beep = [beepingManager beep] ;
-    
+
     NSLog(@"This is your beep: %@", beep);
-    
+
 }
 
 

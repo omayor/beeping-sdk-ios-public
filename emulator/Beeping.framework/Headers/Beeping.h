@@ -42,7 +42,7 @@
     
     // Timers
     NSTimer *_tPing ;
-    NSTimer *_tBeep ;
+    NSTimer *_tSecs ;
     
 }
 
